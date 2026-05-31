@@ -38,46 +38,43 @@ A Python-based financial analytics project designed to collect, analyze, and vis
 
 ### ✅ Phase 1: Market Overview & Data Collection
 
-- NIFTY data collection
-- Return calculations
-- CAGR calculations
-- Market overview reporting
-- Price visualization
+* NIFTY 50 historical data collection
+* Return calculations (1M, 6M, 1Y, 5Y, 10Y)
+* CAGR calculations
+* Market overview reporting
+* Modular project structure
+* Data fetching functions
 
-### 🚧 Phase 2: Top Gainers & Top Losers
+### ✅ Phase 2: Stock Performance Analysis
 
-- Daily return analysis
-- Top performers
-- Worst performers
+* Individual stock return analysis
+* Multi-stock comparison
+* Performance ranking system
+* Best performing stock identification
+* Worst performing stock identification
+* Stock leaderboard generation
 
-### 📅 Phase 3: Sector Analysis
+### 🚧 Phase 3: Risk & Volatility Analysis
 
-- Sector comparison
-- Sector insights
+* Daily return calculations
+* Volatility calculations
+* Risk ranking
+* Most stable stocks
+* Most risky stocks
+* Risk comparison dashboard
 
-### 📅 Phase 4: Portfolio Analytics
 
-- Portfolio return analysis
-- Risk metrics
 
-### 📅 Phase 5: Interactive Dashboard
-
-- Dashboard development
-- Advanced visualizations
-
-### 📅 Phase 6: Streamlit Deployment
-
-- Web application deployment
-
-### 📅 Phase 7: Machine Learning
-
-- Trend prediction
-- Market forecasting
 
 ---
 
-## Current Status
+Current Status
 
 ✅ Phase 1 Completed
 
-🚧 Phase 2 In Progress
+✅ Phase 2 Completed
+
+🚧 Phase 3 In Progress
+
+Next Milestone:
+Risk & Volatility Analysis of NIFTY 50 Stocks.
