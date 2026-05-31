@@ -1,51 +1,12 @@
-import yfinance as yf
+from analysis import calculate_return
+from analysis import calculate_cagr
 
-print("Starting...")
-
-nifty = yf.Ticker("^NSEI")
-
-print("Fetching data...")
-
-df = nifty.history(period="1mo")
-
-print("Data received!")
-
-print(df.head())
-print(df.columns)
-
-# first_close = df["Close"].iloc[0]
-#
-# last_close = df["Close"].iloc[-1]
-#
-# print("First Close:", first_close)
-# print("Last Close:", last_close)
-#
-# return_pct = ((last_close - first_close) / first_close) * 100
-#
-# print("Return %:", round(return_pct, 2))
-
-
-def calculate_return(period):
-
-    df = nifty.history(period=period)
-
-    first_close = df["Close"].iloc[0]
-    last_close = df["Close"].iloc[-1]
-
-    return ((last_close - first_close) / first_close) * 100
-
-
-# print("1 Month:", round(calculate_return("1mo"),2))
-# print("6 Month:", round(calculate_return("6mo"),2))
-# print("1 Year:", round(calculate_return("1y"),2))
-# print("5 Year:", round(calculate_return("5y"),2))
-# print("10 Year:", round(calculate_return("10y"),2))
 
 def market_overview():
 
-    print("\n" + "="*40)
+    print("\n" + "=" * 40)
     print("NIFTY 50 MARKET OVERVIEW")
-    print("="*40)
+    print("=" * 40)
 
     print(f"1 Month Return : {round(calculate_return('1mo'),2)}%")
     print(f"6 Month Return : {round(calculate_return('6mo'),2)}%")
@@ -53,18 +14,54 @@ def market_overview():
     print(f"5 Year Return  : {round(calculate_return('5y'),2)}%")
     print(f"10 Year Return : {round(calculate_return('10y'),2)}%")
 
-# market_overview()
+    print()
 
-def calculate_cagr(period, years):
+    print(f"5 Year CAGR : {round(calculate_cagr('5y',5),2)}%")
+    print(f"10 Year CAGR : {round(calculate_cagr('10y',10),2)}%")
 
-    df = nifty.history(period=period)
 
-    first_close = df["Close"].iloc[0]
-    last_close = df["Close"].iloc[-1]
+market_overview()
 
-    cagr = ((last_close / first_close) ** (1 / years) - 1) * 100
+from stock_analysis import get_stock_return
 
-    return cagr
+print("TCS Return:")
 
-print("5 Year CAGR:", round(calculate_cagr("5y", 5), 2))
-print("10 Year CAGR:", round(calculate_cagr("10y", 10), 2))
+print(round(get_stock_return("TCS.NS", "1y"), 2))
+
+stocks = {
+    "TCS": "TCS.NS",
+    "Infosys": "INFY.NS",
+    "Reliance": "RELIANCE.NS",
+    "HDFC Bank": "HDFCBANK.NS",
+    "ICICI Bank": "ICICIBANK.NS"
+}
+
+results = {}
+
+for company, symbol in stocks.items():
+
+    stock_return = get_stock_return(symbol, "1y")
+
+    results[company] = stock_return
+
+print(results)
+
+best_stock = max(results, key=results.get)
+
+print("Best Stock:", best_stock)
+
+worst_stock = min(results, key=results.get)
+
+print("Worst Stock:", worst_stock)
+
+sorted_stocks = sorted(
+    results.items(),
+    key=lambda x: x[1],
+    reverse=True
+)
+
+print("\nTOP PERFORMERS")
+
+for company, stock_return in sorted_stocks:
+
+    print(f"{company}: {round(stock_return, 2)}%")
