@@ -54,7 +54,7 @@ A Python-based financial analytics project designed to collect, analyze, and vis
 * Worst performing stock identification
 * Stock leaderboard generation
 
-### 🚧 Phase 3: Risk & Volatility Analysis
+✅ Phase 3: Risk & Volatility Analysis
 
 * Daily return calculations
 * Volatility calculations
@@ -63,6 +63,13 @@ A Python-based financial analytics project designed to collect, analyze, and vis
 * Most risky stocks
 * Risk comparison dashboard
 
+🚧 Phase 4: Sector Analysis
+- Sector mapping
+- Sector-wise returns
+- Sector-wise volatility
+- Best performing sectors
+- Weak sectors
+- Sector insights generation
 
 
 
