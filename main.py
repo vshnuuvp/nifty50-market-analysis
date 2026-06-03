@@ -65,3 +65,42 @@ print("\nTOP PERFORMERS")
 for company, stock_return in sorted_stocks:
 
     print(f"{company}: {round(stock_return, 2)}%")
+
+
+from stock_analysis import get_stock_volatility
+
+print(get_stock_volatility("TCS.NS", "1y"))
+
+from stock_analysis import compare_volatility
+
+volatility_results = compare_volatility()
+
+print("\nVOLATILITY ANALYSIS")
+print("=" * 30)
+
+for company, volatility in volatility_results.items():
+
+    print(f"{company}: {round(volatility, 2)}%")
+
+most_volatile = max(volatility_results, key=volatility_results.get)
+
+least_volatile = min(volatility_results, key=volatility_results.get)
+
+print("\nMost Volatile:", most_volatile)
+print("Least Volatile:", least_volatile)
+
+
+from stock_analysis import risk_return_dashboard
+
+dashboard = risk_return_dashboard()
+
+print("\nRISK VS RETURN ANALYSIS")
+print("=" * 50)
+
+for company, stock_return, volatility in dashboard:
+
+    print(
+        f"{company:<12} "
+        f"{round(stock_return,2):>10}% "
+        f"{round(volatility,2):>12}%"
+    )
